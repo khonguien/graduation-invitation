@@ -117,6 +117,7 @@ section {
 }
 
 .card {
+    background: rgba(255, 255, 255, 0.9);
     padding: 40px;
     border-radius: 2px;
     box-shadow: 2px 4px 15px rgba(0,0,0,0.08);
@@ -174,6 +175,7 @@ section {
 }
 
 .map-container {
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 2px;
     overflow: hidden;
     padding: 15px 15px 60px 15px; /* Creates a Polaroid photo look */
@@ -586,6 +588,7 @@ section {
     display: block;
     width: fit-content;
     margin: 15px auto 0;
+    text-align: center;
     border: none;
     cursor: pointer;
     font-family: inherit;
