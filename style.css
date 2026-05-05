@@ -328,7 +328,7 @@ section {
 }
 
 .G {
-    top: 55%;
+    top: 53%;
     left: 12%;
     width: 100px;
     --rot: -5deg;
@@ -337,7 +337,7 @@ section {
 }
 
 .R {
-    top: 55%;
+    top: 53%;
     left: 25%;
     width: 85px;
     --rot: 5deg;
@@ -346,7 +346,7 @@ section {
 }
 
 .A {
-    top: 54%;
+    top: 52%;
     left: 35%;
     width: 60px;
     --rot: -5deg;
@@ -354,7 +354,7 @@ section {
     animation-delay: 0.3s;
 }
 .D {
-    top: 55%;
+    top: 53%;
     left: 45%;
     width: 75px;
     --rot: 8deg;
@@ -363,7 +363,7 @@ section {
 }
 
 .U {
-    top: 54%;
+    top: 52%;
     left: 55%;
     width: 50px;
     --rot: -3deg;
@@ -372,7 +372,7 @@ section {
 }
 
 .A2 {
-    top: 55%;
+    top: 53%;
     left: 65%;
     width: 65px;
     --rot: 12deg;
@@ -381,7 +381,7 @@ section {
 }
 
 .T {
-    top: 54%;
+    top: 52%;
     left: 75%;
     width: 50px;
     --rot: -7deg;
@@ -390,7 +390,7 @@ section {
 }
 
 .I {
-    top: 56%;
+    top: 54%;
     left: 83%;
     width: 40px;
     --rot: 5deg;
@@ -399,7 +399,7 @@ section {
 }
 
 .O {
-    top: 55%;
+    top: 53%;
     left: 90%;
     width: 75px;
     --rot: -10deg;
@@ -408,7 +408,7 @@ section {
 }
 
 .N {
-    top: 56%;
+    top: 54%;
     left: 97%;
     width: 85px;
     --rot: 6deg;
@@ -418,7 +418,7 @@ section {
 
 /* CEREMONY letters */
 .C {
-    top: 65%;
+    top: 63%;
     left: 26%;
     width: 45px;
     --rot: -6deg;
@@ -427,7 +427,7 @@ section {
 }
 
 .E {
-    top: 65%;
+    top: 63%;
     left: 33%;
     width: 45px;
     --rot: 4deg;
@@ -436,7 +436,7 @@ section {
 }
 
 .R2 {
-    top: 64%;
+    top: 62%;
     left: 40%;
     width: 55px;
     --rot: -3deg;
@@ -445,7 +445,7 @@ section {
 }
 
 .E2 {
-    top: 65%;
+    top: 63%;
     left: 47%;
     width: 45px;
     --rot: 8deg;
@@ -454,7 +454,7 @@ section {
 }
 
 .M {
-    top: 65%;
+    top: 63%;
     left: 54%;
     width: 60px;
     --rot: -5deg;
@@ -463,7 +463,7 @@ section {
 }
 
 .O2 {
-    top: 65%;
+    top: 63%;
     left: 62%;
     width: 50px;
     --rot: 6deg;
@@ -472,7 +472,7 @@ section {
 }
 
 .N2 {
-    top: 65%;
+    top: 63%;
     left: 68%;
     width: 55px;
     --rot: -4deg;
@@ -481,7 +481,7 @@ section {
 }
 
 .Y {
-    top: 65%;
+    top: 63%;
     left: 75%;
     width: 50px;
     --rot: 7deg;
@@ -526,6 +526,7 @@ section {
     }
     .hero-bottom-text {
         top: calc(63% + 50px);
+        top: calc(58% + 50px);
         gap: 0;
     }
     .hero-date {
@@ -559,26 +560,26 @@ section {
     }
 
     /* Scale scrapbook letters appropriately for mobile using viewport width (vw) */
-    .G { width: 11vw; left: 10%; top: 55%; }
-    .R { width: 9.5vw; left: 19%; top: 55%; }
-    .A { width: 7vw; left: 28%; top: 54%; }
-    .D { width: 8.5vw; left: 36%; top: 55%; }
-    .U { width: 7vw; left: 45%; top: 54%; }
-    .A2 { width: 6vw; left: 54%; top: 55%; }
-    .T { width: 7vw; left: 63%; top: 54%; }
-    .I { width: 4.5vw; left: 71%; top: 56%; }
-    .O { width: 7.5vw; left: 78%; top: 55%; }
-    .N { width: 8.5vw; left: 87%; top: 56%; }
+    .G { width: 11vw; left: 10%; top: 53%; }
+    .R { width: 9.5vw; left: 19%; top: 53%; }
+    .A { width: 7vw; left: 28%; top: 52%; }
+    .D { width: 8.5vw; left: 36%; top: 53%; }
+    .U { width: 7vw; left: 45%; top: 52%; }
+    .A2 { width: 6vw; left: 54%; top: 53%; }
+    .T { width: 7vw; left: 63%; top: 52%; }
+    .I { width: 4.5vw; left: 71%; top: 54%; }
+    .O { width: 7.5vw; left: 78%; top: 53%; }
+    .N { width: 8.5vw; left: 87%; top: 54%; }
 
     /* Scale CEREMONY scrapbook letters for mobile */
-    .C { width: 6vw; left: 24%; top: 63%; }
-    .E { width: 5.5vw; left: 31%; top: 63%; }
-    .R2 { width: 7vw; left: 39%; top: 62%; }
-    .E2 { width: 5.5vw; left: 46%; top: 63%; }
-    .M { width: 7.5vw; left: 54%; top: 63%; }
-    .O2 { width: 6.5vw; left: 61%; top: 63%; }
-    .N2 { width: 7vw; left: 69%; top: 63%; }
-    .Y { width: 6vw; left: 76%; top: 63%; }
+    .C { width: 6vw; left: 24%; top: 61%; }
+    .E { width: 5.5vw; left: 31%; top: 61%; }
+    .R2 { width: 7vw; left: 39%; top: 60%; }
+    .E2 { width: 5.5vw; left: 46%; top: 61%; }
+    .M { width: 7.5vw; left: 54%; top: 61%; }
+    .O2 { width: 6.5vw; left: 61%; top: 61%; }
+    .N2 { width: 7vw; left: 69%; top: 61%; }
+    .Y { width: 6vw; left: 76%; top: 61%; }
 
     .scrap-hat { 
         width: 150px; 
