@@ -24,3 +24,32 @@ document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
 
+// Reveal lower content on first touch/click
+let contentRevealed = false;
+const hiddenContent = document.getElementById('hidden-content');
+
+function revealContent(e) {
+    // Ignore clicks on the back button or language button
+    if (e.target.closest('#back-btn') || e.target.closest('#lang-btn')) return;
+
+    if (!contentRevealed) {
+        hiddenContent.style.display = 'block';
+        // Trigger a reflow to ensure the CSS transition works
+        void hiddenContent.offsetWidth;
+        hiddenContent.classList.add('show');
+        contentRevealed = true;
+    }
+}
+
+document.addEventListener('click', revealContent);
+document.addEventListener('touchstart', revealContent, { passive: true });
+
+const backBtn = document.getElementById('back-btn');
+backBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    hiddenContent.classList.remove('show');
+    setTimeout(() => {
+        hiddenContent.style.display = 'none';
+        contentRevealed = false;
+    }, 800); // Wait for the fade-out CSS transition before setting display: none
+});

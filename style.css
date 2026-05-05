@@ -204,72 +204,94 @@ section {
 .scrap {
     position: absolute;
     z-index: 5;
+    animation: pulse-scale 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-scale {
+    0%, 100% { scale: 1; }
+    50% { scale: 1.15; }
+}
+
+/* Randomize animation durations and delays for scraps so they move independently */
+.scrap:nth-child(2n) { animation-duration: 3s; animation-delay: 0.2s; }
+.scrap:nth-child(3n) { animation-duration: 2.2s; animation-delay: 0.5s; }
+.scrap:nth-child(5n) { animation-duration: 3.5s; animation-delay: 0.8s; }
+.scrap:nth-child(7n) { animation-duration: 2.8s; animation-delay: 0.1s; }
+
+#hidden-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#hidden-content.show {
+    opacity: 1;
 }
 
 .G {
-    top: 10%;
+    top: 65%;
     left: 12%;
     transform: translateX(-50%) rotate(-5deg);
     width: 100px;
 }
 
 .R {
-    top: 10%;
+    top: 65%;
     left: 25%;
     width: 85px;
     transform: translateX(-50%) rotate(5deg);
 }
 
 .A {
-    top: 9%;
+    top: 64%;
     left: 35%;
     width: 60px;
     transform: translateX(-50%) rotate(-5deg);
 }
 .D {
-    top: 10%;
+    top: 65%;
     left: 45%;
     width: 75px;
     transform: translateX(-50%) rotate(8deg);
 }
 
 .U {
-    top: 9%;
+    top: 64%;
     left: 55%;
     width: 50px;
     transform: translateX(-50%) rotate(-3deg);
 }
 
 .A2 {
-    top: 10%;
+    top: 65%;
     left: 65%;
     width: 65px;
     transform: translateX(-50%) rotate(12deg);
 }
 
 .T {
-    top: 9%;
+    top: 64%;
     left: 75%;
     width: 50px;
     transform: translateX(-50%) rotate(-7deg);
 }
 
 .I {
-    top: 11%;
+    top: 66%;
     left: 83%;
     width: 40px;
     transform: translateX(-50%) rotate(5deg);
 }
 
 .O {
-    top: 10%;
+    top: 65%;
     left: 90%;
     width: 75px;
     transform: translateX(-50%) rotate(-10deg);
 }
 
 .N {
-    top: 11%;
+    top: 66%;
     left: 97%;
     width: 85px;
     transform: translateX(-50%) rotate(6deg);
@@ -277,56 +299,56 @@ section {
 
 /* CEREMONY letters */
 .C {
-    top: 25%;
+    top: 75%;
     left: 26%;
     width: 45px;
     transform: translateX(-50%) rotate(-6deg);
 }
 
 .E {
-    top: 25%;
+    top: 75%;
     left: 33%;
     width: 45px;
     transform: translateX(-50%) rotate(4deg);
 }
 
 .R2 {
-    top: 24%;
+    top: 74%;
     left: 40%;
     width: 55px;
     transform: translateX(-50%) rotate(-3deg);
 }
 
 .E2 {
-    top: 25%;
+    top: 75%;
     left: 47%;
     width: 45px;
     transform: translateX(-50%) rotate(8deg);
 }
 
 .M {
-    top: 25%;
+    top: 75%;
     left: 54%;
     width: 60px;
     transform: translateX(-50%) rotate(-5deg);
 }
 
 .O2 {
-    top: 25%;
+    top: 75%;
     left: 62%;
     width: 50px;
     transform: translateX(-50%) rotate(6deg);
 }
 
 .N2 {
-    top: 25%;
+    top: 75%;
     left: 68%;
     width: 55px;
     transform: translateX(-50%) rotate(-4deg);
 }
 
 .Y {
-    top: 25%;
+    top: 75%;
     left: 75%;
     width: 50px;
     transform: translateX(-50%) rotate(7deg);
@@ -351,7 +373,7 @@ section {
     bottom: 10%;
     left: 5%;
     width: 150px;
-    animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite, pulse-scale 3s ease-in-out infinite alternate;
 }
 
 .scrap-disco {
@@ -365,36 +387,36 @@ section {
         padding: 60px 15jpx;
     }
     .name {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
     }
     .subtitle, .degree, .university {
-        font-size: 0.4rem;
+        font-size: 0.4rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.5rem, 0.6rem) */
     }
     .main-title {
         padding: 15px 20px;
         width: 90%;
     }
     /* Scale scrapbook letters appropriately for mobile using viewport width (vw) */
-    .G { width: 11vw; left: 10%; }
-    .R { width: 9.5vw; left: 19%; }
-    .A { width: 7vw; left: 28%; }
-    .D { width: 8.5vw; left: 36%; }
-    .U { width: 7vw; left: 45%; }
-    .A2 { width: 6vw; left: 54%; }
-    .T { width: 7vw; left: 63%; }
-    .I { width: 4.5vw; left: 71%; }
-    .O { width: 7.5vw; left: 78%; }
-    .N { width: 8.5vw; left: 87%; }
+    .G { width: 11vw; left: 10%; top: 55%; }
+    .R { width: 9.5vw; left: 19%; top: 55%; }
+    .A { width: 7vw; left: 28%; top: 54%; }
+    .D { width: 8.5vw; left: 36%; top: 55%; }
+    .U { width: 7vw; left: 45%; top: 54%; }
+    .A2 { width: 6vw; left: 54%; top: 55%; }
+    .T { width: 7vw; left: 63%; top: 54%; }
+    .I { width: 4.5vw; left: 71%; top: 56%; }
+    .O { width: 7.5vw; left: 78%; top: 55%; }
+    .N { width: 8.5vw; left: 87%; top: 56%; }
 
     /* Scale CEREMONY scrapbook letters for mobile */
-    .C { width: 6vw; left: 24%; }
-    .E { width: 5.5vw; left: 31%; }
-    .R2 { width: 7vw; left: 39%; }
-    .E2 { width: 5.5vw; left: 46%; }
-    .M { width: 7.5vw; left: 54%; }
-    .O2 { width: 6.5vw; left: 61%; }
-    .N2 { width: 7vw; left: 69%; }
-    .Y { width: 6vw; left: 76%; }
+    .C { width: 6vw; left: 24%; top: 63%; }
+    .E { width: 5.5vw; left: 31%; top: 63%; }
+    .R2 { width: 7vw; left: 39%; top: 62%; }
+    .E2 { width: 5.5vw; left: 46%; top: 63%; }
+    .M { width: 7.5vw; left: 54%; top: 63%; }
+    .O2 { width: 6.5vw; left: 61%; top: 63%; }
+    .N2 { width: 7vw; left: 69%; top: 63%; }
+    .Y { width: 6vw; left: 76%; top: 63%; }
 
     .scrap-hat { 
         width: 150px; 
@@ -408,6 +430,27 @@ section {
     .scrap-disco {
         width: 180px;
     }
+}
+
+.action-btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 10px 24px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #555555;
+    transform: translateY(-2px);
 }
 
 @keyframes float {
