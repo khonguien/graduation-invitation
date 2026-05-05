@@ -51,9 +51,32 @@ body::before {
     color: #ffffff;
 }
 
+.back-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+#back-btn {
+    background: transparent;
+    border: 1px solid #2c2c2c;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#back-btn:hover {
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
 section {
     padding: 80px 20px;
-    max-width: 900px;
+    max-width: 1440px;
     margin: 0 auto;
     text-align: center;
 }
@@ -69,7 +92,6 @@ section {
 .name {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    margin: 25px 0;
     color: #1a1a1a;
 }
 
@@ -81,7 +103,6 @@ section {
 
 .degree {
     font-weight: 500;
-    margin-top: 25px;
 }
 
 .details {
@@ -187,114 +208,191 @@ section {
     background-color: transparent;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 60px 20px 20px;
 }
 
-.main-title {
-    position: relative;
-    z-index: 10;
+.hero-top-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
     text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 20px 40px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    z-index: 10;
+    margin-top: 40px;
+    color: #1a1a1a;
+    max-width: 600px;
 }
+
+.hero-center-space {
+    min-height: 40vh;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-bottom-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    gap: 1px;
+    margin-bottom: 20px;
+}
+
+.hero-date {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-top: 15px;
+}
+
+.hero-time {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.hero-location {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+}
+
+.hero-invite {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #1a1a1a;
+}
+
+.invite-line {
+    display: inline-block;
+    width: 150px;
+    border-bottom: 1px solid #2c2c2c;
+    height: 1.2rem;
+}
+
+.hero-dresscode {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+}
+
 
 .scrap {
     position: absolute;
     z-index: 5;
-    animation: pulse-scale 2.5s ease-in-out infinite alternate;
+    animation: scrapBounce 4s infinite;
 }
-
-@keyframes pulse-scale {
-    0%, 100% { scale: 1; }
-    50% { scale: 1.15; }
-}
-
-/* Randomize animation durations and delays for scraps so they move independently */
-.scrap:nth-child(2n) { animation-duration: 3s; animation-delay: 0.2s; }
-.scrap:nth-child(3n) { animation-duration: 2.2s; animation-delay: 0.5s; }
-.scrap:nth-child(5n) { animation-duration: 3.5s; animation-delay: 0.8s; }
-.scrap:nth-child(7n) { animation-duration: 2.8s; animation-delay: 0.1s; }
 
 #hidden-content {
     display: none;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-in-out, transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 #hidden-content.show {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .G {
     top: 65%;
     left: 12%;
-    transform: translateX(-50%) rotate(-5deg);
     width: 100px;
+    --rot: -5deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.1s;
 }
 
 .R {
     top: 65%;
     left: 25%;
     width: 85px;
-    transform: translateX(-50%) rotate(5deg);
+    --rot: 5deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.2s;
 }
 
 .A {
     top: 64%;
     left: 35%;
     width: 60px;
-    transform: translateX(-50%) rotate(-5deg);
+    --rot: -5deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.3s;
 }
 .D {
     top: 65%;
     left: 45%;
     width: 75px;
-    transform: translateX(-50%) rotate(8deg);
+    --rot: 8deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.4s;
 }
 
 .U {
     top: 64%;
     left: 55%;
     width: 50px;
-    transform: translateX(-50%) rotate(-3deg);
+    --rot: -3deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.5s;
 }
 
 .A2 {
     top: 65%;
     left: 65%;
     width: 65px;
-    transform: translateX(-50%) rotate(12deg);
+    --rot: 12deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.6s;
 }
 
 .T {
     top: 64%;
     left: 75%;
     width: 50px;
-    transform: translateX(-50%) rotate(-7deg);
+    --rot: -7deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.7s;
 }
 
 .I {
     top: 66%;
     left: 83%;
     width: 40px;
-    transform: translateX(-50%) rotate(5deg);
+    --rot: 5deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.8s;
 }
 
 .O {
     top: 65%;
     left: 90%;
     width: 75px;
-    transform: translateX(-50%) rotate(-10deg);
+    --rot: -10deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 0.9s;
 }
 
 .N {
     top: 66%;
     left: 97%;
     width: 85px;
-    transform: translateX(-50%) rotate(6deg);
+    --rot: 6deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.0s;
 }
 
 /* CEREMONY letters */
@@ -302,56 +400,72 @@ section {
     top: 75%;
     left: 26%;
     width: 45px;
-    transform: translateX(-50%) rotate(-6deg);
+    --rot: -6deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.1s;
 }
 
 .E {
     top: 75%;
     left: 33%;
     width: 45px;
-    transform: translateX(-50%) rotate(4deg);
+    --rot: 4deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.2s;
 }
 
 .R2 {
     top: 74%;
     left: 40%;
     width: 55px;
-    transform: translateX(-50%) rotate(-3deg);
+    --rot: -3deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.3s;
 }
 
 .E2 {
     top: 75%;
     left: 47%;
     width: 45px;
-    transform: translateX(-50%) rotate(8deg);
+    --rot: 8deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.4s;
 }
 
 .M {
     top: 75%;
     left: 54%;
     width: 60px;
-    transform: translateX(-50%) rotate(-5deg);
+    --rot: -5deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.5s;
 }
 
 .O2 {
     top: 75%;
     left: 62%;
     width: 50px;
-    transform: translateX(-50%) rotate(6deg);
+    --rot: 6deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.6s;
 }
 
 .N2 {
     top: 75%;
     left: 68%;
     width: 55px;
-    transform: translateX(-50%) rotate(-4deg);
+    --rot: -4deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.7s;
 }
 
 .Y {
     top: 75%;
     left: 75%;
     width: 50px;
-    transform: translateX(-50%) rotate(7deg);
+    --rot: 7deg;
+    transform: translateX(-50%) rotate(var(--rot));
+    animation-delay: 1.8s;
 }
 
 .scrap-hat {
@@ -360,6 +474,7 @@ section {
     width: 250px;
     transform: rotate(15deg);
     z-index: 6;
+    animation: none;
 }
 
 .scrap-bear {
@@ -367,35 +482,47 @@ section {
     right: 2%;
     width: 200px;
     transform: rotate(-10deg);
+    animation: none;
 }
 
 .scrap-flower {
     bottom: 10%;
     left: 5%;
     width: 150px;
-    animation: float 6s ease-in-out infinite, pulse-scale 3s ease-in-out infinite alternate;
+    animation: float 6s ease-in-out infinite;
 }
 
 .scrap-disco {
     top: -5%;
     left: -5%;
     width: 300px;
+    animation: none;
 }
 
 @media (max-width: 768px) {
     section {
-        padding: 60px 15jpx;
+        padding: 60px 15px;
     }
     .name {
-        font-size: 0.9rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
+        font-size: 0.8rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
     }
     .subtitle, .degree, .university {
         font-size: 0.4rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.5rem, 0.6rem) */
     }
-    .main-title {
-        padding: 15px 20px;
-        width: 90%;
+    
+    /* Adjustments for the hidden rest pages in mobile */
+    .card h2, .map-section h2 {
+        font-size: 1.3rem; /* <-- MANUAL ADJUST H2 ON MOBILE */
+        margin-bottom: 15px;
     }
+    .card p {
+        font-size: 0.85rem; /* <-- MANUAL ADJUST P ON MOBILE */
+    }
+    .action-btn {
+        font-size: 0.85rem; /* <-- MANUAL ADJUST BUTTON ON MOBILE */
+        padding: 8px 18px;
+    }
+
     /* Scale scrapbook letters appropriately for mobile using viewport width (vw) */
     .G { width: 11vw; left: 10%; top: 55%; }
     .R { width: 9.5vw; left: 19%; top: 55%; }
@@ -457,3 +584,27 @@ section {
     0%, 100% { transform: translateY(0) rotate(-20deg); }
     50% { transform: translateY(-15px) rotate(-15deg); }
 }
+
+/* Layout-safe adaption of box-Bounce2 for letter items */
+@keyframes scrapBounce {
+    from, 50% { transform: translateX(-50%) translateY(0) scale(1, 1) rotate(var(--rot, 0deg)); }
+    62.5% { animation-timing-function: ease-in; transform: translateX(-50%) translateY(35%) scale(1.14, 0.95) rotate(var(--rot, 0deg)); }
+    68.75% { animation-timing-function: ease-out; transform: translateX(-50%) translateY(-15%) scale(1.05, 1.03) rotate(calc(var(--rot, 0deg) + 15deg)); }
+    75% { animation-timing-function: ease-out; transform: translateX(-50%) translateY(-50%) scale(0.96, 1.1) rotate(calc(var(--rot, 0deg) + 5deg)); }
+    87.5% { transform: translateX(-50%) translateY(20%) scale(1.12, 0.93) rotate(calc(var(--rot, 0deg) - 3deg)); }
+    to { transform: translateX(-50%) translateY(0) scale(1) rotate(var(--rot, 0deg)); }
+}
+
+/* Requested keyframes block */
+@keyframes bTape { from, 50% { transform: translateY(0) rotate(0); } 62.5% { transform: translateY(75%) rotate(0); } 68.75% { transform: translateY(-37.5%) rotate(15deg); } 75% { transform: translateY(-150%) rotate(5deg); } 87.5% { transform: translateY(65%) rotate(-3deg); } to { transform: translateY(0) rotate(0); } }
+@keyframes bLeft { from, 50% { transform: rotate(35deg); } 62.5% { transform: rotate(45deg); } 75% { transform: rotate(30deg); } 87.5% { transform: rotate(45deg); } to { transform: rotate(35deg); } }
+@keyframes bRight { from, 50% { transform: rotate(-35deg); } 62.5% { transform: rotate(-45deg); } 75% { transform: rotate(-35deg); } 87.5% { transform: rotate(-45deg); } to { transform: rotate(-35deg); } }
+@keyframes box-Bounce { from, 50% { transform: translateY(0) scale(1, 1); } 62.5% { transform: translateY(4%) scale(1.12, 0.89); } 75% { transform: translateY(-11%) scale(0.92, 1.1); } 87.5% { transform: translateY(0) scale(1.05, 0.9); } to { transform: translateY(0) scale(1, 1); } }
+@keyframes box-Bounce2 { from, 50% { transform: translateY(0) scale(1, 1) rotate(0); } 62.5% { animation-timing-function: ease-in; transform: translateY(45%) scale(1.14, 0.95) rotate(0); } 68.75% { animation-timing-function: ease-out; transform: translateY(-22.5%) scale(1.05, 1.03) rotate(15deg); } 75% { animation-timing-function: ease-out; transform: translateY(-90%) scale(0.96, 1.1) rotate(5deg); } 87.5% { transform: translateY(30%) scale(1.12, 0.93) rotate(-3deg); } to { transform: translateY(0) scale(1) rotate(0); } }
+@keyframes boxShadowBounce { from, 50% { transform: translateY(0) scale(1, 1) rotate(0); } 62.5% { animation-timing-function: ease-in; transform: translateY(10%) scale(1.14, 0.95) rotate(0); } 68.75% { animation-timing-function: ease-out; transform: translateY(-10%) scale(1.05, 1.03) rotate(15deg); } 75% { animation-timing-function: ease-out; transform: translateY(-30%) scale(0.96, 1.1) rotate(5deg); } 87.5% { transform: translateY(10%) scale(1.12, 0.93) rotate(-3deg); } to { transform: translateY(0) scale(1.1) rotate(0); } }
+@keyframes starRotate1 { from { transform: scale(0) rotate(0); } 25% { transform: scale(1) rotate(0.25turn); } 50%, 100% { transform: scale(0) rotate(0.5turn); } }
+@keyframes starRotate2 { from { transform: scale(0) rotate(0); } 25% { transform: scale(1) rotate(-0.25turn); } 50%, 100% { transform: scale(0) rotate(-0.5turn); } }
+@keyframes flyUp { 0% { transform: translateY(0) rotate(0); } 100% { transform: translateY(-14em) rotate(-10deg); } }
+@keyframes flyDown { 0% { transform: translateY(-14em) rotate(-10deg); } 100% { transform: translateY(0) rotate(0); } }
+@keyframes letterUp { 0% { bottom: 0; opacity: 0; z-index: 1; } 50% { bottom: 30em; opacity: 1; z-index: 5; } 51% { z-index: 25; } 100% { bottom: 2em; opacity: 1; z-index: 25; } }
+@keyframes letterDown { 0% { bottom: 2em; opacity: 1; z-index: 25; } 40% { bottom: 15em; opacity: 1; z-index: 25; } 41% { z-index: 5; } 100% { bottom: -20em; opacity: 0; z-index: 5; } }

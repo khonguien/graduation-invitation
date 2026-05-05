@@ -29,8 +29,8 @@ let contentRevealed = false;
 const hiddenContent = document.getElementById('hidden-content');
 
 function revealContent(e) {
-    // Ignore clicks on the back button or language button
-    if (e.target.closest('#back-btn') || e.target.closest('#lang-btn')) return;
+    // Ignore clicks on buttons or links
+    if (e.target.closest('button') || e.target.closest('a')) return;
 
     if (!contentRevealed) {
         hiddenContent.style.display = 'block';
@@ -38,6 +38,11 @@ function revealContent(e) {
         void hiddenContent.offsetWidth;
         hiddenContent.classList.add('show');
         contentRevealed = true;
+        
+        // Smoothly scroll down to the revealed content for a slide transition feel
+        setTimeout(() => {
+            hiddenContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     }
 }
 
