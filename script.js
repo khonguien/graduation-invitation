@@ -74,3 +74,25 @@ if (guestNameElement) {
         guestNameElement.textContent = isVietnamese ? 'cục cưng' : 'sweetheart';
     }
 }
+
+// RSVP Modal Logic
+const rsvpBtn = document.getElementById('rsvp-btn');
+const rsvpModal = document.getElementById('rsvp-modal');
+const closeBtn = document.querySelector('.close-btn');
+
+if (rsvpBtn && rsvpModal && closeBtn) {
+    rsvpBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        rsvpModal.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        rsvpModal.classList.remove('show');
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === rsvpModal) {
+            rsvpModal.classList.remove('show');
+        }
+    });
+}
