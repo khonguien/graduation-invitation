@@ -66,16 +66,15 @@ backBtn.addEventListener('click', () => {
 
 const urlParams = new URLSearchParams(window.location.search);
 const guestName = urlParams.get('name');
-const guestNameElement = document.getElementById('guest-name');
-if (guestNameElement) {
+document.querySelectorAll('.guest-name, #guest-name').forEach(guestNameElement => {
     if (guestName && guestName.trim() !== '') {
         guestNameElement.textContent = guestName;
         guestNameElement.setAttribute('data-vi', guestName);
         guestNameElement.setAttribute('data-en', guestName);
     } else {
-        guestNameElement.textContent = isVietnamese ? 'cục cưng' : 'sweetheart';
+        guestNameElement.textContent = isVietnamese ? (guestNameElement.getAttribute('data-vi') || 'cục cưng') : (guestNameElement.getAttribute('data-en') || 'sweetheart');
     }
-}
+});
 
 // RSVP Modal Logic
 const rsvpBtn = document.getElementById('rsvp-btn');
