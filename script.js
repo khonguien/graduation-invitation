@@ -58,3 +58,12 @@ backBtn.addEventListener('click', () => {
         contentRevealed = false;
     }, 800); // Wait for the fade-out CSS transition before setting display: none
 });
+
+const urlParams = new URLSearchParams(window.location.search);
+const guestName = urlParams.get('name');
+const guestNameElement = document.getElementById('guest-name');
+if (guestName && guestNameElement) {
+    guestNameElement.textContent = guestName;
+    guestNameElement.removeAttribute('data-vi');
+    guestNameElement.removeAttribute('data-en');
+}

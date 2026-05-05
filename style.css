@@ -76,7 +76,7 @@ body::before {
 
 section {
     padding: 80px 20px;
-    max-width: 1440px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
@@ -233,12 +233,16 @@ section {
 }
 
 .hero-bottom-text {
+    position: absolute;
+    top: calc(65% + 65px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
     gap: 1px;
-    margin-bottom: 20px;
 }
 
 .hero-date {
@@ -261,11 +265,18 @@ section {
 
 .hero-invite {
     display: flex;
-    align-items: flex-end;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
     font-size: 1.1rem;
     margin-top: 10px;
     color: #1a1a1a;
+}
+
+.invite-top {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .invite-line {
@@ -307,7 +318,7 @@ section {
 }
 
 .G {
-    top: 65%;
+    top: 55%;
     left: 12%;
     width: 100px;
     --rot: -5deg;
@@ -316,7 +327,7 @@ section {
 }
 
 .R {
-    top: 65%;
+    top: 55%;
     left: 25%;
     width: 85px;
     --rot: 5deg;
@@ -325,7 +336,7 @@ section {
 }
 
 .A {
-    top: 64%;
+    top: 54%;
     left: 35%;
     width: 60px;
     --rot: -5deg;
@@ -333,7 +344,7 @@ section {
     animation-delay: 0.3s;
 }
 .D {
-    top: 65%;
+    top: 55%;
     left: 45%;
     width: 75px;
     --rot: 8deg;
@@ -342,7 +353,7 @@ section {
 }
 
 .U {
-    top: 64%;
+    top: 54%;
     left: 55%;
     width: 50px;
     --rot: -3deg;
@@ -351,7 +362,7 @@ section {
 }
 
 .A2 {
-    top: 65%;
+    top: 55%;
     left: 65%;
     width: 65px;
     --rot: 12deg;
@@ -360,7 +371,7 @@ section {
 }
 
 .T {
-    top: 64%;
+    top: 54%;
     left: 75%;
     width: 50px;
     --rot: -7deg;
@@ -369,7 +380,7 @@ section {
 }
 
 .I {
-    top: 66%;
+    top: 56%;
     left: 83%;
     width: 40px;
     --rot: 5deg;
@@ -378,7 +389,7 @@ section {
 }
 
 .O {
-    top: 65%;
+    top: 55%;
     left: 90%;
     width: 75px;
     --rot: -10deg;
@@ -387,7 +398,7 @@ section {
 }
 
 .N {
-    top: 66%;
+    top: 56%;
     left: 97%;
     width: 85px;
     --rot: 6deg;
@@ -397,7 +408,7 @@ section {
 
 /* CEREMONY letters */
 .C {
-    top: 75%;
+    top: 65%;
     left: 26%;
     width: 45px;
     --rot: -6deg;
@@ -406,7 +417,7 @@ section {
 }
 
 .E {
-    top: 75%;
+    top: 65%;
     left: 33%;
     width: 45px;
     --rot: 4deg;
@@ -415,7 +426,7 @@ section {
 }
 
 .R2 {
-    top: 74%;
+    top: 64%;
     left: 40%;
     width: 55px;
     --rot: -3deg;
@@ -424,7 +435,7 @@ section {
 }
 
 .E2 {
-    top: 75%;
+    top: 65%;
     left: 47%;
     width: 45px;
     --rot: 8deg;
@@ -433,7 +444,7 @@ section {
 }
 
 .M {
-    top: 75%;
+    top: 65%;
     left: 54%;
     width: 60px;
     --rot: -5deg;
@@ -442,7 +453,7 @@ section {
 }
 
 .O2 {
-    top: 75%;
+    top: 65%;
     left: 62%;
     width: 50px;
     --rot: 6deg;
@@ -451,7 +462,7 @@ section {
 }
 
 .N2 {
-    top: 75%;
+    top: 65%;
     left: 68%;
     width: 55px;
     --rot: -4deg;
@@ -460,7 +471,7 @@ section {
 }
 
 .Y {
-    top: 75%;
+    top: 65%;
     left: 75%;
     width: 50px;
     --rot: 7deg;
@@ -502,6 +513,20 @@ section {
 @media (max-width: 768px) {
     section {
         padding: 60px 15px;
+    }
+    .hero-bottom-text {
+        top: calc(63% + 50px);
+        gap: 0;
+    }
+    .hero-date {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .hero-time, .hero-location, .hero-invite {
+        font-size: 0.9rem;
+    }
+    .invite-line {
+        width: 100px;
     }
     .name {
         font-size: 0.8rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
@@ -560,12 +585,13 @@ section {
 }
 
 .action-btn {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin: 15px auto 0;
     border: none;
     cursor: pointer;
     font-family: inherit;
     font-size: 1rem;
-    margin-top: 15px;
     padding: 10px 24px;
     background-color: #2c2c2c;
     color: #ffffff;
