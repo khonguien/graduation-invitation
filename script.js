@@ -34,6 +34,7 @@ function revealContent(e) {
     if (e.target.closest('button') || e.target.closest('a')) return;
 
     if (!contentRevealed) {
+        document.body.classList.add('content-revealed');
         hiddenContent.style.display = 'block';
         // Trigger a reflow to ensure the CSS transition works
         void hiddenContent.offsetWidth;
@@ -53,6 +54,7 @@ document.addEventListener('touchstart', revealContent, { passive: true });
 
 const backBtn = document.getElementById('back-btn');
 backBtn.addEventListener('click', () => {
+    document.body.classList.remove('content-revealed');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     hiddenContent.classList.remove('show');
     backToggle.classList.remove('visible');

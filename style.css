@@ -206,6 +206,7 @@ section {
 .hero-scrapbook {
     position: relative;
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     background-color: transparent;
     overflow: hidden;
@@ -306,7 +307,23 @@ section {
 .scrap {
     position: absolute;
     z-index: 5;
-    animation: scrapBounce 2.5s infinite;
+    animation: scrapBounce 2s infinite;
+}
+
+.scrap-letters-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.scrap-letters-container .scrap {
+    pointer-events: auto;
 }
 
 #hidden-content {
@@ -490,8 +507,7 @@ section {
     --rot: -15deg;
     transform: rotate(var(--rot));
     z-index: 6;
-    animation: scrapBounce2 2.5s infinite;
-    animation-delay: 1.9s;
+    animation: swingInRight 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, scrapBounce2 2.5s infinite 1.9s;
 }
 
 .scrap-speaker {
@@ -508,8 +524,7 @@ section {
     width: 50px;
     --rot: -50deg;
     transform: rotate(var(--rot));
-    animation: scrapBounce2 2.5s infinite;
-    animation-delay: 2.1s;
+    animation: swingInRight 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, scrapBounce2 2.5s infinite 2.1s;
 }
 
 .scrap-speaker2 {
@@ -518,8 +533,16 @@ section {
     width: 300px;
     --rot: 0deg;
     transform: rotate(var(--rot));
-    animation: scrapBounce2 2.5s infinite;
-    animation-delay: 2.0s;
+    animation: swingInLeft 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, scrapBounce2 2.5s infinite 2.0s;
+}
+
+body.content-revealed .scrap-hand,
+body.content-revealed .scrap-pin {
+    animation: swingOutRight 0.8s ease-in forwards !important;
+}
+
+body.content-revealed .scrap-speaker2 {
+    animation: swingOutLeft 0.8s ease-in forwards !important;
 }
 
 @media (max-width: 768px) {
@@ -543,8 +566,14 @@ section {
     .name {
         font-size: 0.8rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
     }
+    .thank-you-section .name {
+        font-size: 1.8rem;
+    }
     .subtitle, .degree, .university {
         font-size: 0.4rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.5rem, 0.6rem) */
+    }
+    .thank-you-section .subtitle {
+        font-size: 0.9rem;
     }
     
     /* Adjustments for the hidden rest pages in mobile */
@@ -661,6 +690,25 @@ section {
 @keyframes flyDown { 0% { transform: translateY(-14em) rotate(-10deg); } 100% { transform: translateY(0) rotate(0); } }
 @keyframes letterUp { 0% { bottom: 0; opacity: 0; z-index: 1; } 50% { bottom: 30em; opacity: 1; z-index: 5; } 51% { z-index: 25; } 100% { bottom: 2em; opacity: 1; z-index: 25; } }
 @keyframes letterDown { 0% { bottom: 2em; opacity: 1; z-index: 25; } 40% { bottom: 15em; opacity: 1; z-index: 25; } 41% { z-index: 5; } 100% { bottom: -20em; opacity: 0; z-index: 5; } }
+
+/* Swing Animations */
+@keyframes swingInRight {
+    0% { transform: translateX(100vw) rotate(calc(var(--rot) + 60deg)); opacity: 0; }
+    100% { transform: translateX(0) rotate(var(--rot)); opacity: 1; }
+}
+
+@keyframes swingInLeft {
+    0% { transform: translateX(-100vw) rotate(calc(var(--rot) - 60deg)); opacity: 0; }
+    100% { transform: translateX(0) rotate(var(--rot)); opacity: 1; }
+}
+
+@keyframes swingOutRight {
+    to { transform: translateX(100vw) rotate(calc(var(--rot) + 60deg)); opacity: 0; }
+}
+
+@keyframes swingOutLeft {
+    to { transform: translateX(-100vw) rotate(calc(var(--rot) - 60deg)); opacity: 0; }
+}
 
 /* RSVP Modal Styles */
 .modal {
