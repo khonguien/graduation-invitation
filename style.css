@@ -56,6 +56,14 @@ body::before {
     top: 20px;
     left: 20px;
     z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.back-toggle.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #back-btn {
@@ -275,15 +283,17 @@ section {
 
 .invite-top {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     gap: 10px;
 }
 
 .invite-line {
     display: inline-block;
-    width: 150px;
+    min-width: 150px;
     border-bottom: 1px solid #2c2c2c;
-    height: 1.2rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 5px;
 }
 
 .hero-dresscode {
@@ -526,7 +536,7 @@ section {
         font-size: 0.9rem;
     }
     .invite-line {
-        width: 100px;
+        min-width: 100px;
     }
     .name {
         font-size: 0.8rem; /* <-- MANUAL FONT SIZE ADJUSTMENT FOR MOBILE (e.g., 0.8rem, 1rem) */
