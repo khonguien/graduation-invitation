@@ -306,7 +306,7 @@ section {
 .scrap {
     position: absolute;
     z-index: 5;
-    animation: scrapBounce 4s infinite;
+    animation: scrapBounce 2.5s infinite;
 }
 
 #hidden-content {
@@ -483,35 +483,43 @@ section {
     animation-delay: 1.8s;
 }
 
-.scrap-hat {
-    top: -5%;
-    right: 5%;
-    width: 250px;
-    transform: rotate(15deg);
-    z-index: 6;
-    animation: none;
-}
-
-.scrap-bear {
-    bottom: 25%;
-    right: 2%;
-    width: 200px;
-    transform: rotate(-10deg);
-    animation: none;
-}
-
-.scrap-flower {
-    bottom: 30%;
-    left: 5%;
+.scrap-hand {
+    top: 15%;
+    right: -5%;
     width: 150px;
-    animation: float 6s ease-in-out infinite;
+    --rot: -15deg;
+    transform: rotate(var(--rot));
+    z-index: 6;
+    animation: scrapBounce2 2.5s infinite;
+    animation-delay: 1.9s;
 }
 
-.scrap-disco {
-    top: -25%;
+.scrap-speaker {
+    bottom: -2%;
+    right: -5%;
+    width: 200px;
+    transform: rotate(15deg);
+    animation: none;
+}
+
+.scrap-pin {
+    top: -3%;
+    right: 7%;
+    width: 50px;
+    --rot: -50deg;
+    transform: rotate(var(--rot));
+    animation: scrapBounce2 2.5s infinite;
+    animation-delay: 2.1s;
+}
+
+.scrap-speaker2 {
+    bottom: -25%;
     left: -5%;
     width: 300px;
-    animation: none;
+    --rot: 0deg;
+    transform: rotate(var(--rot));
+    animation: scrapBounce2 2.5s infinite;
+    animation-delay: 2.0s;
 }
 
 @media (max-width: 768px) {
@@ -574,17 +582,22 @@ section {
     .N2 { width: 7vw; left: 69%; top: 41%; }
     .Y { width: 6vw; left: 76%; top: 41%; }
 
-    .scrap-hat { 
-        width: 150px; 
-        top: -10%; 
+    .scrap-hand { 
+        width: 100px; 
+        /* top: -10%;  */
     }
-    .scrap-bear { 
+    .scrap-speaker { 
         width: 120px; 
-        right: -5%; 
-        bottom: 25%; 
+        /* right: -5%;  */
+        /* bottom: 25%;  */
     }
-    .scrap-disco {
-        width: 180px;
+    .scrap-speaker2 {
+        width: 150px;
+        bottom: 1%;
+    }
+    .scrap-pin {
+        width: 40px;
+        right: 15%;
     }
 }
 
@@ -624,6 +637,15 @@ section {
     75% { animation-timing-function: ease-out; transform: translateX(-50%) translateY(-50%) scale(0.96, 1.1) rotate(calc(var(--rot, 0deg) + 5deg)); }
     87.5% { transform: translateX(-50%) translateY(20%) scale(1.12, 0.93) rotate(calc(var(--rot, 0deg) - 3deg)); }
     to { transform: translateX(-50%) translateY(0) scale(1) rotate(var(--rot, 0deg)); }
+}
+
+@keyframes scrapBounce2 {
+    from, 50% { transform: translateY(0) scale(1, 1) rotate(var(--rot, 0deg)); }
+    62.5% { animation-timing-function: ease-in; transform: translateY(35%) scale(1.14, 0.95) rotate(var(--rot, 0deg)); }
+    68.75% { animation-timing-function: ease-out; transform: translateY(-15%) scale(1.05, 1.03) rotate(calc(var(--rot, 0deg) + 15deg)); }
+    75% { animation-timing-function: ease-out; transform: translateY(-50%) scale(0.96, 1.1) rotate(calc(var(--rot, 0deg) + 5deg)); }
+    87.5% { transform: translateY(20%) scale(1.12, 0.93) rotate(calc(var(--rot, 0deg) - 3deg)); }
+    to { transform: translateY(0) scale(1) rotate(var(--rot, 0deg)); }
 }
 
 /* Requested keyframes block */
