@@ -6,17 +6,26 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color: #2c2c2c;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #f4f0e6;
     background-image: url('https://i.pinimg.com/originals/bd/eb/e4/bdebe4e6fc1a12e0adb831f28f6b8a08.png');
     /* background-image: url('https://i.pinimg.com/736x/90/b5/e3/90b5e34521ff274277fd48616a354e7c.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #2c2c2c;
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
+    z-index: -1;
 }
 
 .lang-toggle {
