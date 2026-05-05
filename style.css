@@ -168,12 +168,6 @@ section {
     font-size: 1.05rem;
 }
 
-.map-section h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 40px;
-    color: #1a1a1a;
-}
-
 .map-container {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 2px;
@@ -536,7 +530,7 @@ section {
     }
     
     /* Adjustments for the hidden rest pages in mobile */
-    .card h2, .map-section h2 {
+    .card h2 {
         font-size: 1.3rem; /* <-- MANUAL ADJUST H2 ON MOBILE */
         margin-bottom: 15px;
     }
